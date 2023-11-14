@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcyklw3mvwfgk"]
+
+[ext_resource type="Texture2D" uid="uid://cg34qute6rajf" path="res://UI/HUD/Health Bar/Health Full.png" id="1_f2sn8"]
+[ext_resource type="Script" path="res://health.gd" id="2_3hinu"]
+[ext_resource type="Texture2D" uid="uid://4ccup1naxacc" path="res://UI/HUD/Health Bar/Health Half.png" id="3_5ysr3"]
+[ext_resource type="Texture2D" uid="uid://d1yh6chtpep4k" path="res://UI/HUD/Health Bar/Health Empty.png" id="4_o5lx1"]
+
+[node name="Health" type="Sprite2D"]
+texture = ExtResource("4_o5lx1")
+script = ExtResource("2_3hinu")
+state_images = Array[CompressedTexture2D]([ExtResource("1_f2sn8"), ExtResource("3_5ysr3"), ExtResource("4_o5lx1")])

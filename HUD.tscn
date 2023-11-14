@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://cffefbxohvnvq"]
+
+[ext_resource type="Texture2D" uid="uid://c14b1ou7d6t41" path="res://UI/HUD/Stamina Bar/Back.png" id="1_lvlq8"]
+[ext_resource type="Script" path="res://StaminaManager.gd" id="2_j2xcl"]
+[ext_resource type="Texture2D" uid="uid://c52iwwqbjeeu7" path="res://UI/HUD/Stamina Bar/Fill.png" id="2_lcpy4"]
+[ext_resource type="Texture2D" uid="uid://cnnur0wj5jyg3" path="res://UI/HUD/Stamina Bar/Bottle.png" id="2_o4fqf"]
+[ext_resource type="Texture2D" uid="uid://bmfqmo2acbgn7" path="res://UI/HUD/Stamina Bar/Bottle_Empty.png" id="6_flqhj"]
+[ext_resource type="Script" path="res://HealthManager.gd" id="7_axwov"]
+[ext_resource type="PackedScene" uid="uid://dmr5wpmto3pgt" path="res://state_machine.tscn" id="8_2cqq8"]
+[ext_resource type="PackedScene" uid="uid://dcyklw3mvwfgk" path="res://health.tscn" id="8_ion3e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0auab"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o4fqf")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_flqhj")
+}],
+"loop": true,
+"name": &"Refiling",
+"speed": 5.0
+}]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="StaminaManager" type="Node" parent="."]
+script = ExtResource("2_j2xcl")
+
+[node name="StaminaBar" type="TextureProgressBar" parent="StaminaManager"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 32.0
+offset_bottom = 56.0
+grow_horizontal = 2
+max_value = 93.0
+value = 93.0
+texture_under = ExtResource("1_lvlq8")
+texture_progress = ExtResource("2_lcpy4")
+
+[node name="StaminaBottle" type="AnimatedSprite2D" parent="StaminaManager"]
+position = Vector2(16, 40)
+sprite_frames = SubResource("SpriteFrames_0auab")
+animation = &"Idle"
+
+[node name="HealthManager" type="Node" parent="."]
+script = ExtResource("7_axwov")
+health_obj = ExtResource("8_ion3e")
+
+[node name="StateMachine" parent="." instance=ExtResource("8_2cqq8")]
