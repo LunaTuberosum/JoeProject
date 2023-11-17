@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0qeq4ydbj7ia"]
+
+[ext_resource type="Script" path="res://Entity/Enemies/enemy.gd" id="1_1yrj7"]
+[ext_resource type="Texture2D" uid="uid://bx4oyo20mlfqp" path="res://Entity/Enemies/Test/Walking/Test_Walking_1.png" id="2_bm2ux"]
+[ext_resource type="Texture2D" uid="uid://d207vtf87js6i" path="res://Entity/Enemies/Test/Walking/Test_Walking_2.png" id="3_h578h"]
+[ext_resource type="Texture2D" uid="uid://cpcup1mxa5vvu" path="res://Entity/Enemies/Test/Walking/Test_Walking_3.png" id="4_uq60f"]
+[ext_resource type="Texture2D" uid="uid://c8relotmwms2m" path="res://Entity/Enemies/Test/Walking/Test_Walking_4.png" id="5_db5my"]
+[ext_resource type="Texture2D" uid="uid://dqojl63t5je1n" path="res://Entity/Enemies/Test/Test.png" id="6_b471i"]
+[ext_resource type="Script" path="res://Entity/State/StateMachine.gd" id="7_3omyf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r4rtd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bm2ux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h578h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uq60f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_db5my")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bm2ux")
+}],
+"loop": false,
+"name": &"Moving",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_b471i")
+}],
+"loop": true,
+"name": &"Portrait",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cgcbo"]
+radius = 9.0
+height = 28.0
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource("1_1yrj7")
+
+[node name="Animater" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r4rtd")
+animation = &"Moving"
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_cgcbo")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("7_3omyf")
+
+[node name="MovePoint" type="Marker2D" parent="."]
+
+[node name="DecisionTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DecisionTimer" to="." method="_on_decision_timer_timeout"]

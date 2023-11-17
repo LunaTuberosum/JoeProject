@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cw3l44y6aexy4"]
+
+[ext_resource type="Texture2D" uid="uid://d17yet5pjxa62" path="res://Entity/Joe/Joe_Portrait.png" id="1_e7v6b"]
+[ext_resource type="Texture2D" uid="uid://b4128ndkbkthe" path="res://Entity/Joe/Joe_RollTest.png" id="2_57ch2"]
+[ext_resource type="Script" path="res://player.gd" id="3_h6av8"]
+[ext_resource type="PackedScene" uid="uid://dmr5wpmto3pgt" path="res://state_machine.tscn" id="4_w4nnp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opp5b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e7v6b")
+}],
+"loop": true,
+"name": &"Portrait",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_57ch2")
+}],
+"loop": true,
+"name": &"Rolling",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xk56d"]
+height = 28.0
+
+[node name="Player" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_opp5b")
+animation = &"Portrait"
+script = ExtResource("3_h6av8")
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xk56d")
+
+[node name="StaminaTimer" type="Timer" parent="."]
+
+[node name="RollTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="StateMachine" parent="." instance=ExtResource("4_w4nnp")]
+
+[connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
+[connection signal="timeout" from="RollTimer" to="." method="_on_roll_timer_timeout"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f1jqht5kggv5"
-path="res://.godot/imported/Joe_RollTest.png-de03c9e96512f79dca1306a64cddbf55.ctex"
+uid="uid://cnnur0wj5jyg3"
+path="res://.godot/imported/Bottle.png-1d3db6251084744f9aa099cb53045867.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entity/Joe/Joe_RollTest.png"
-dest_files=["res://.godot/imported/Joe_RollTest.png-de03c9e96512f79dca1306a64cddbf55.ctex"]
+source_file="res://UI/HUD/HealthBar/Bottle.png"
+dest_files=["res://.godot/imported/Bottle.png-1d3db6251084744f9aa099cb53045867.ctex"]
 
 [params]
 

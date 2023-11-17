@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://cutm6ba06451c"]
+
+[ext_resource type="Texture2D" uid="uid://3vmrm3xtb225" path="res://UI/HUD/SlimePoints/Joe/SlimePoint.png" id="1_qfg06"]
+[ext_resource type="Script" path="res://UI/HUD/SlimePoints/health.gd" id="2_mky0q"]
+[ext_resource type="Texture2D" uid="uid://dg5jwo2kct2gs" path="res://UI/HUD/SlimePoints/Joe/SlimePoint_Empty.png" id="3_ouksk"]
+
+[node name="SlimePoint" type="Sprite2D"]
+texture = ExtResource("1_qfg06")
+script = ExtResource("2_mky0q")
+state_images = Array[CompressedTexture2D]([ExtResource("1_qfg06"), ExtResource("3_ouksk")])

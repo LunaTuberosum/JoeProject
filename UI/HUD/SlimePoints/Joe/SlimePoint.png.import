@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f1jqht5kggv5"
-path="res://.godot/imported/Joe_RollTest.png-de03c9e96512f79dca1306a64cddbf55.ctex"
+uid="uid://3vmrm3xtb225"
+path="res://.godot/imported/SlimePoint.png-13132ed6e0ab762831087426dcc90a93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entity/Joe/Joe_RollTest.png"
-dest_files=["res://.godot/imported/Joe_RollTest.png-de03c9e96512f79dca1306a64cddbf55.ctex"]
+source_file="res://UI/HUD/SlimePoints/Joe/SlimePoint.png"
+dest_files=["res://.godot/imported/SlimePoint.png-13132ed6e0ab762831087426dcc90a93.ctex"]
 
 [params]
 

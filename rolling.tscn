@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0kxin3pc6kvq"]
-
-[ext_resource type="PackedScene" uid="uid://dwm5h4m7y4w7v" path="res://state.tscn" id="1_m4atb"]
-[ext_resource type="Script" path="res://Rolling.gd" id="2_j550p"]
-
-[node name="Rolling" instance=ExtResource("1_m4atb")]
-script = ExtResource("2_j550p")

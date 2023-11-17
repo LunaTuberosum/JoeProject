@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://cffefbxohvnvq"]
+
+[ext_resource type="Script" path="res://UI/HUD/HealthBar/HealthManager.gd" id="1_a4urs"]
+[ext_resource type="Texture2D" uid="uid://c14b1ou7d6t41" path="res://UI/HUD/HealthBar/Back.png" id="2_5fx3h"]
+[ext_resource type="Texture2D" uid="uid://c52iwwqbjeeu7" path="res://UI/HUD/HealthBar/Fill.png" id="3_1vjqn"]
+[ext_resource type="Texture2D" uid="uid://cnnur0wj5jyg3" path="res://UI/HUD/HealthBar/Bottle.png" id="4_ypb4g"]
+[ext_resource type="Texture2D" uid="uid://bmfqmo2acbgn7" path="res://UI/HUD/HealthBar/Bottle_Empty.png" id="5_elhhb"]
+[ext_resource type="Script" path="res://UI/HUD/SlimePoints/SlimePointManager.gd" id="6_dlgws"]
+[ext_resource type="PackedScene" uid="uid://ymi5c5pf1se7" path="res://UI/HUD/SlimePoints/slimePoint.tscn" id="7_7qlm0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0auab"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ypb4g")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_elhhb")
+}],
+"loop": true,
+"name": &"Refiling",
+"speed": 5.0
+}]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="HealthManager" type="Node" parent="."]
+script = ExtResource("1_a4urs")
+
+[node name="HealthBar" type="TextureProgressBar" parent="HealthManager"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+max_value = 15.0
+value = 15.0
+texture_under = ExtResource("2_5fx3h")
+texture_progress = ExtResource("3_1vjqn")
+
+[node name="HealthBottle" type="AnimatedSprite2D" parent="HealthManager"]
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_0auab")
+animation = &"Idle"
+
+[node name="SlimePointManager" type="Node" parent="."]
+script = ExtResource("6_dlgws")
+sPoint_obj = ExtResource("7_7qlm0")

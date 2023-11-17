@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckib0yg6n50nm"]
+[gd_scene load_steps=8 format=3 uid="uid://ckib0yg6n50nm"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_ou3p1"]
-[ext_resource type="PackedScene" uid="uid://cw3l44y6aexy4" path="res://player.tscn" id="2_5q0wq"]
-[ext_resource type="PackedScene" uid="uid://cffefbxohvnvq" path="res://HUD.tscn" id="3_c8ljw"]
+[ext_resource type="PackedScene" uid="uid://3f8qhpwjskou" path="res://Entity/Joe/player.tscn" id="2_5q0wq"]
+[ext_resource type="PackedScene" uid="uid://cffefbxohvnvq" path="res://UI/HUD/HUD.tscn" id="3_c8ljw"]
 [ext_resource type="Texture2D" uid="uid://ddpdro47a2nvg" path="res://Tileset/Debug/Debug.png" id="4_gumw0"]
+[ext_resource type="PackedScene" uid="uid://b7yrl3b7kbmxy" path="res://Entity/Enemies/Test/testEnemy.tscn" id="5_7rfti"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t70e3"]
 texture = ExtResource("4_gumw0")
@@ -20,8 +21,6 @@ sources/0 = SubResource("TileSetAtlasSource_t70e3")
 [node name="Main" type="Node"]
 script = ExtResource("1_ou3p1")
 
-[node name="MovePoint" type="Marker2D" parent="."]
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lgd6p")
 cell_quadrant_size = 32
@@ -32,7 +31,13 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 1, 65536, 0, 65537, 6
 position = Vector2(304, 176)
 
 [node name="MainCamera" type="Camera2D" parent="Player"]
-position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
 [node name="HUD" parent="." instance=ExtResource("3_c8ljw")]
+
+[node name="TestEnemy" parent="." instance=ExtResource("5_7rfti")]
+position = Vector2(496, 112)
+
+[connection signal="health_change" from="Player" to="." method="change_health"]
+[connection signal="ready" from="HUD" to="." method="setup_healthManager"]
+[connection signal="ready" from="HUD" to="." method="setup_pointManager"]

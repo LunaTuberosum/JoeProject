@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f1jqht5kggv5"
-path="res://.godot/imported/Joe_RollTest.png-de03c9e96512f79dca1306a64cddbf55.ctex"
+uid="uid://dilx7idurpxb1"
+path="res://.godot/imported/Joe_Walking_1.png-69e9a311094aad64308346edcee9d562.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entity/Joe/Joe_RollTest.png"
-dest_files=["res://.godot/imported/Joe_RollTest.png-de03c9e96512f79dca1306a64cddbf55.ctex"]
+source_file="res://Entity/Joe/Walking/Joe_Walking_1.png"
+dest_files=["res://.godot/imported/Joe_Walking_1.png-69e9a311094aad64308346edcee9d562.ctex"]
 
 [params]
 
